@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление объявления</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body style="background-image: linear-gradient(#ffffff, #eeeeee);">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img src="media/logo.jpg" style="width: 75px; height: auto;"></img></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="myaccount.html">Личный кабинет</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="registration.html">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="add_pet.html">Добавить объявление</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="pet_search_page.html">Поиск по объявлениям</a>
+                </li>
+              </ul>
+              <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Авторизация
+              </button>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
+                <button class="btn btn-outline-success" type="submit">Поиск</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Авторизация</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <form class="modal-body">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Электронная почта</label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"><img src="media/emoji-smile.svg" style="width: 20px;"></img></span>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"><img src="media/key.svg" style="width: 20px;"></span>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                  </div>
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Запомнить меня</label>
+              </div>
+              <div class="mb-3">
+                <a href="registration.html">Регистрация</a>
+              </div>
+              <div class="mb-3">
+              <a href="#main">Забыли пароль?</a>
+              </div>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
+              <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--мОДАЛЬНОЕ ОКНО-->
+
+    <main class="container mt-4">
+        <h1>Добавление нового объявления</h1>
+        <form id="addPetForm" class="needs-validation" novalidate>
+            <!-- Имя -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Имя пользователя</label>
+                <input type="text" class="form-control" id="name" name="name" pattern="[а-яА-ЯёЁ\s\-]+" required>
+                <div class="invalid-feedback">Введите корректное имя (только кириллица, пробелы, дефисы).</div>
+            </div>
+            <!-- Телефон -->
+            <div class="mb-3">
+                <label for="phone" class="form-label">Телефон</label>
+                <input type="tel" class="form-control" id="phone" name="phone" pattern="^\+?\d+$" required>
+                <div class="invalid-feedback">Введите корректный номер телефона (только цифры и знак +).</div>
+            </div>
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Электронная почта</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <div class="invalid-feedback">Введите корректный адрес электронной почты.</div>
+            </div>
+            <!-- Регистрация -->
+            <div class="mb-3">
+                <label for="register" class="form-label">Автоматическая регистрация</label>
+                <select class="form-select" id="register" name="register" required>
+                    <option value="0" selected>Нет</option>
+                    <option value="1">Да</option>
+                </select>
+            </div>
+            <!-- Поля пароля -->
+            <div id="passwordFields" class="d-none">
+                <div class="mb-3">
+                    <label for="password" class="form-label">Пароль</label>
+                    <input type="password" class="form-control" id="password" name="password" 
+                        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}" 
+                        title="Пароль должен содержать минимум 7 символов, включая одну заглавную букву, одну строчную букву и одну цифру.">
+                    <div class="invalid-feedback">Пароль должен соответствовать требованиям.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password_confirmation" class="form-label">Подтверждение пароля</label>
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+                    <div class="invalid-feedback">Пароли должны совпадать.</div>
+                </div>
+            </div>
+            <!-- Фото -->
+            <div class="mb-3">
+                <label for="photo1" class="form-label">Фото 1 (обязательно)</label>
+                <input type="file" class="form-control" id="photo1" name="photo1" required>
+                <div class="invalid-feedback">Добавьте хотя бы одно изображение.</div>
+            </div>
+            <div class="mb-3">
+                <label for="photo2" class="form-label">Фото 2</label>
+                <input type="file" class="form-control" id="photo2" name="photo2">
+            </div>
+            <div class="mb-3">
+                <label for="photo3" class="form-label">Фото 3</label>
+                <input type="file" class="form-control" id="photo3" name="photo3">
+            </div>
+            <!-- Клеймо -->
+            <div class="mb-3">
+                <label for="mark" class="form-label">Клеймо</label>
+                <input type="text" class="form-control" id="mark" name="mark">
+            </div>
+            <!-- Описание -->
+            <div class="mb-3">
+                <label for="description" class="form-label">Описание</label>
+                <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+            </div>
+            <!-- Подтверждение -->
+            <div class="mb-3 form-check">
+                <input class="form-check-input" type="checkbox" id="confirm" name="confirm" value="1" required>
+                <label class="form-check-label" for="confirm">Согласен на обработку персональных данных</label>
+                <div class="invalid-feedback">Необходимо согласиться на обработку данных.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить объявление</button>
+        </form>
+    </main>
+
+    <script>
+        const registerSelect = document.getElementById('register');
+        const passwordFields = document.getElementById('passwordFields');
+
+        registerSelect.addEventListener('change', (e) => {
+            passwordFields.classList.toggle('d-none', e.target.value !== '1');
+        });
+
+        const form = document.getElementById('addPetForm');
+        form.addEventListener('submit', (e) => {
+            const password = form.password.value;
+            const confirmPassword = form.password_confirmation.value;
+            if (passwordFields.classList.contains('d-none') || password === confirmPassword) {
+                form.classList.add('was-validated');
+            } else {
+                e.preventDefault();
+                form.password_confirmation.setCustomValidity('Пароли не совпадают.');
+            }
+        });
+    </script>
+
+<footer class="bg-light text-center text-lg-start mt-5">
+    <div class="container p-4">
+      <!-- Секция о нас -->
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">О нас</h5>
+          <p>
+            Pet's Home помогает находить потерявшихся питомцев и возвращать их домой. Мы объединяем усилия волонтеров, владельцев и неравнодушных людей.
+          </p>
+        </div>
+  
+        <!-- Быстрые ссылки -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text">Быстрые ссылки</h5>
+          <ul class="list-unstyled mb-0">
+            <li><a href="#!" class="text-dark">Главная</a></li>
+            <li><a href="#!" class="text-dark">О нас</a></li>
+            <li><a href="#!" class="text-dark">Контакты</a></li>
+            <li><a href="#!" class="text-dark">Помощь проекту</a></li>
+          </ul>
+        </div>
+  
+        <!-- Контакты -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Контакты</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-envelope"></i> info@petshome.ru</li>
+            <li><i class="bi bi-telephone"></i> +7 (800) 123-45-67</li>
+            <li><i class="bi bi-geo-alt"></i> Москва, Россия</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Нижняя часть футера -->
+    <div class="text-center p-3 bg-dark text-white">
+      © 2024 Pet's Home. Все права защищены.
+      <a class="text-white" href="#">Условия использования</a>
+    </div>
+  </footer>
+</body>
+</html>

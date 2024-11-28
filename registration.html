@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap demo</title>
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+<body style="background-image: linear-gradient(#ffffff, #eeeeee);">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img src="media/logo.jpg" style="width: 75px; height: auto;"></img></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="myaccount.html">Личный кабинет</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="registration.html">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="add_pet.html">Добавить объявление</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="pet_search_page.html">Поиск по объявлениям</a>
+                </li>
+              </ul>
+              <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Авторизация
+              </button>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
+                <button class="btn btn-outline-success" type="submit">Поиск</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+
+
+<!-- Модальное окно -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Авторизация</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <form class="modal-body">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Электронная почта</label>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1"><img src="media/emoji-smile.svg" style="width: 20px;"></img></span>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Пароль</label>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1"><img src="media/key.svg" style="width: 20px;"></span>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Запомнить меня</label>
+        </div>
+        <div class="mb-3">
+          <a href="#main">Регистрация</a>
+        </div>
+        <div class="mb-3">
+        <a href="#main">Забыли пароль?</a>
+        </div>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
+        <button type="submit" class="btn btn-primary">Войти</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!--Форма регистрации-->
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <form id="registrationForm" class="p-4 border rounded w-50 bg-light" onsubmit="handleSubmit(event)">
+        <!-- Заголовок -->
+        <h3 class="text-center mb-4">Регистрация</h3>
+        
+        <!-- Имя -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Введите имя" required>
+        </div>
+        
+        <!-- Телефон -->
+        <div class="mb-3">
+            <label for="phone" class="form-label">Телефон</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="+7XXXXXXXXXX" required>
+        </div>
+        
+        <!-- Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com" required>
+        </div>
+        
+        <!-- Пароль -->
+        <div class="mb-3">
+            <label for="password" class="form-label">Пароль</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Введите пароль" required>
+        </div>
+        
+        <!-- Подтверждение пароля -->
+        <div class="mb-3">
+            <label for="password_confirmation" class="form-label">Подтвердите пароль</label>
+            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Повторите пароль" required>
+        </div>
+        
+        <!-- Согласие -->
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="1" id="confirm" name="confirm" required>
+            <label class="form-check-label" for="confirm">
+                Согласен на обработку персональных данных
+            </label>
+        </div>
+        
+        <!-- Ошибки -->
+        <div id="errors" class="text-danger mb-3"></div>
+        
+        <!-- Кнопка отправки -->
+        <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+    </form>
+</div>
+
+
+<!--Форма регистрации-->
+
+
+<!--Футер-->
+<footer class="bg-light text-center text-lg-start mt-5">
+    <div class="container p-4">
+      <!-- Секция о нас -->
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">О нас</h5>
+          <p>
+            Pet's Home помогает находить потерявшихся питомцев и возвращать их домой. Мы объединяем усилия волонтеров, владельцев и неравнодушных людей.
+          </p>
+        </div>
+  
+        <!-- Быстрые ссылки -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text">Быстрые ссылки</h5>
+          <ul class="list-unstyled mb-0">
+            <li><a href="#!" class="text-dark">Главная</a></li>
+            <li><a href="#!" class="text-dark">О нас</a></li>
+            <li><a href="#!" class="text-dark">Контакты</a></li>
+            <li><a href="#!" class="text-dark">Помощь проекту</a></li>
+          </ul>
+        </div>
+  
+        <!-- Контакты -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Контакты</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-envelope"></i> info@petshome.ru</li>
+            <li><i class="bi bi-telephone"></i> +7 (800) 123-45-67</li>
+            <li><i class="bi bi-geo-alt"></i> Москва, Россия</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Нижняя часть футера -->
+    <div class="text-center p-3 bg-dark text-white">
+      © 2024 Pet's Home. Все права защищены.
+      <a class="text-white" href="#">Условия использования</a>
+    </div>
+  </footer>
+  
+  <!--Футер-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
